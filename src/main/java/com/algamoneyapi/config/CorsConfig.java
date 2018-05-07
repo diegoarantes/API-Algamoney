@@ -1,5 +1,6 @@
 package com.algamoneyapi.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,6 +8,8 @@ import org.springframework.core.Ordered;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
+
+import com.algamoneyapi.config.property.AlgamoneyApiProperty;
 
 /***
  * 
@@ -17,7 +20,8 @@ import org.springframework.web.filter.CorsFilter;
 @Configuration
 public class CorsConfig {
 	
-	private String originPermitida = "http://localhost:8000"; // TODO: Configurar para diferentes ambientes
+	@Autowired
+	private AlgamoneyApiProperty algamoneyApiProperty;
 
 	@Bean
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -25,7 +29,7 @@ public class CorsConfig {
 		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
-		config.addAllowedOrigin(this.originPermitida);
+		config.addAllowedOrigin(algamoneyApiProperty.getOriginPermitida());
 		
 		//config.addAllowedHeader("*");
 		config.addAllowedHeader("Authorization");
