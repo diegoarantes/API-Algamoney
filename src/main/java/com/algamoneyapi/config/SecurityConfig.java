@@ -8,6 +8,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 /*
 * A anotação ResourceServerConfigurerAdapter gera um WebSecurityConfigurerAdapter.
@@ -31,4 +32,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
+
+//	@Bean //Tive que expor a UserDetailsService por causa do Spring Boot 2
+//	@Override
+//	public UserDetailsService userDetailsServiceBean() throws Exception {
+//		return super.userDetailsServiceBean();
+//	}
 }
