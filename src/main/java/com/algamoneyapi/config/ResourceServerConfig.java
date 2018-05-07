@@ -12,7 +12,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
 @EnableWebSecurity
 @EnableResourceServer
 public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
-
+		
     /*
      * Não necessita estar autenticado para executar requisição em '/teste',
      * mas precisa para executar qualquer outra requisição.
