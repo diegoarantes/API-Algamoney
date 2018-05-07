@@ -31,6 +31,7 @@ import com.algamoneyapi.exceptionhandler.AlgamoneyExceptionHandler.Erro;
 import com.algamoneyapi.model.Lancamento;
 import com.algamoneyapi.repository.LancamentoRepository;
 import com.algamoneyapi.repository.filter.LancamentoFilter;
+import com.algamoneyapi.repository.projection.ResumoLancamento;
 import com.algamoneyapi.service.LancamentoService;
 import com.algamoneyapi.service.exception.PessoaInexistenteOuInativaException;
 
@@ -54,6 +55,12 @@ public class LancamentoResource {
 	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
 	public Page<Lancamento> pesquisar(LancamentoFilter lancamentoFilter, Pageable page) {
 		return lancamentoRepository.filtrar(lancamentoFilter, page);
+	}
+
+	@GetMapping(params = "resumo")
+	@PreAuthorize("hasAuthority('ROLE_PESQUISAR_LANCAMENTO') and #oauth2.hasScope('read')")
+	public Page<ResumoLancamento> resumir(LancamentoFilter lancamentoFilter, Pageable page) {
+		return lancamentoRepository.resumir(lancamentoFilter, page);
 	}
 
 	@GetMapping("/{codigo}")
