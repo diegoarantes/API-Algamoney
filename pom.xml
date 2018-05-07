@@ -50,11 +50,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security.oauth</groupId>
+			<artifactId>spring-security-oauth2</artifactId>
+			<version>2.3.2.RELEASE</version> <!-- Precisei colocar a versão porque não funcionava nem com reza brava -->
+		</dependency>
+
 
 		<dependency>
 			<groupId>mysql</groupId>
