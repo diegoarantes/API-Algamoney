@@ -31,10 +31,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
-
-//	@Bean //Tive que expor a UserDetailsService por causa do Spring Boot 2
-//	@Override
-//	public UserDetailsService userDetailsServiceBean() throws Exception {
-//		return super.userDetailsServiceBean();
-//	}
 }
