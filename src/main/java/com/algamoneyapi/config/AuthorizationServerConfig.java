@@ -25,7 +25,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 		clients.inMemory().withClient("angular").secret("{noop}@ngul@r0")
 				.scopes("read", "write")
 				.authorizedGrantTypes("password", "refresh_token")
-				.accessTokenValiditySeconds(1800)
+				.accessTokenValiditySeconds(1800) // deve ter um tempo de vida pequeno pois ele é manipulado pelo JS
 				.refreshTokenValiditySeconds(3600 * 24) // 1 Dia para expirar o Refresh Token
 				
 				.and().withClient("mobile").secret("{noop}m0b1l30")
